@@ -1,0 +1,23 @@
+#frame{
+	padding-top: 50px;
+}
+
+.container-vid{
+	margin-right: auto;
+	margin-left: 15%;
+	width: 65%;
+	margin-bottom: 20px;
+	border-radius: 1.5rem;
+}
+
+.container-mscr{
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 1.5rem;
+}
+
+.col-md-7{
+	padding-left: 200px;
+}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/comments.css') }}">
+
+<div class="container">
+	<div class="jumbotron">
+		<div class="container vid-c">
+	 		<video width="600" height="400" controls>
+	 			{% set vname = 'marked/'+ v.vname %}
+	 			<source src="{{ url_for('static',filename=vname)}}" type="video/mp4">
+				Your browser does not support the video tag.
+			</video> 
+		</div>
+		<ul>
+			<div class="container fdb">
+				<li><a href=""><img class="like-btn" src="{{ url_for('static',filename='img/like.png') }}"></a></li>
+				<li><p style="margin-top: 25px; padding-right: 100px;">2,000</p></li> <!-- LikeDB -->
+				<li><a href=""><img class="dislike-btn" src="{{ url_for('static',filename='img/dislike.png') }}"></a></li>
+				<li><p style="margin-top: 25px;">420</p></li> <!-- DislikeDB -->
+			</div>
+		</ul>
+		<div class="container">
+			<h3 style="text-align: center;"><b>{{v.vname}}</b></h3>
+		</div>
+		<div class="container">
+			<h3 style="text-align: center;"><b>{{v.verd}}</b></h3>
+		</div>
+	</div>
+	<br>
+	<div class="jumbotron">
+		<form>
+			<div class="row justify-content-md-center">		
+				<div class="col-md-2">
+					<label class="user-lbl">{{v.vUname}}<br>Post a Comment</label>
+				</div>
+				<div class="col-md-10">
+					<textarea class="form-control form-control-lg txt-area" name="comment" rows="3"></textarea>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-10">
+					
+				</div>
+				<div class="col-md-2">
+					<br>
+					<button type="submit" class="btn btn-primary mb-2 sub-btn">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	<div class="jumbotron">
+		{% for n in range(3) %} <!-- change this Loop through list of comments from DB -->
+		<div class="bgc">
+			<div class="row justify-content-md-center">		
+				<div class="col-md-2">
+					<label class="user-lbl-nm">Alvin</label> <!-- Use commented username -->
+				</div>
+				<div class="col-md-10">
+					<label class="user-lbl-cmt">This Video is super nice and super cool i am a big fan of jenn lulrence</label> <!-- Put comment from user -->
+				</div>
+			</div>
+		</div>
+		<br>
+		{% endfor %}
+	</div>
+</div>
+
+
+{% endblock %}

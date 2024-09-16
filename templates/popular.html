@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/popular.css') }}">
+{% for v in vid %}
+<div class="main-container">
+	<div class="card-bg">
+		{% set vname = 'marked/'+ v.vname %}
+		<iframe class="video-player"src="{{ url_for('static',filename=vname)}}"></iframe>
+			<div class="card-body">
+				<a href="/comments/{{v.vname}}"><h4 class="card-title">{{v.vname}}</h4></a>
+				<h4 class="card-title">Verdict - {{v.verd}}</h4>
+				<p class="card-text">Prediction Confidence - <b>{{ v.vacc }}%</b></p>
+				<p class="card-text">Uploaded By - <b>{{ v.vUname }}</b></p>
+				<p class="share-btn">Share:</p>
+				<a href="https://www.facebook.com/" class="btn share-btn">Facebook</a>
+				<a href="https://twitter.com/" class="btn share-btn">Twitter</a>
+				<a href="https://www.reddit.com/" class="btn share-btn">Reddit</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+
+{% endblock %}
